@@ -47,11 +47,11 @@ namespace prjCSCApp
             if (result)
             {
 
-                COrder order = new COrder();
-                order.OrderId = 1;
-                order.OrderDate = DateTime.Now;
-                order.MemberId = 1;
-                order.OrderState = "NEW";
+                //COrder order = new COrder();
+                //order.OrderId = 1;
+                //order.OrderDate = DateTime.Now;
+                //order.MemberId = (int)mp.user.MemberId;
+                //order.OrderState = "NEW";
 
                 //await SaveOrder(order);
                 //await mp.Navigation.PushAsync(new Member());
@@ -78,7 +78,7 @@ namespace prjCSCApp
                 COrder order = new COrder();
                 order.OrderId = 1;
                 order.OrderDate = new DateTime();
-                order.MemberId = 1;
+                order.MemberId = (int)mp.user.MemberId;
                 order.OrderState = "NEW";
 
                 var json = JsonConvert.SerializeObject(order);

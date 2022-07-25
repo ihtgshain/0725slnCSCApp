@@ -15,7 +15,7 @@
             <!--主廣告(1排橫向)-->
             <AbsoluteLayout>
             <StackLayout Margin="4">
-                    <CarouselView x:Name="HotItemView" HeightRequest="200">
+                    <CarouselView x:Name="HotItemView" HeightRequest="195">
                     <CarouselView.ItemsLayout>
                         <LinearItemsLayout Orientation="Horizontal" ItemSpacing="3"/>
                     </CarouselView.ItemsLayout>
@@ -27,7 +27,7 @@
                                         <Label Text="{Binding ProductName}"/>
                                         <Label Text="{Binding Price}" HorizontalOptions="EndAndExpand"/>
                                     </StackLayout>
-                                        <ImageButton Clicked="HotItemView_Clicked" Source="{Binding FullPhotoPath}" WidthRequest="390" Aspect="Fill" />
+                                        <ImageButton Clicked="HotItemView_Clicked" Source="{Binding FullPhotoPath}" WidthRequest="390" HeightRequest="180" Aspect="Fill" />
                                 </StackLayout>
                             </Frame>
                         </DataTemplate>
@@ -46,7 +46,7 @@
                                 <Frame BackgroundColor="#DFFADC" Padding="5" CornerRadius="20" WidthRequest="390">
                                     <StackLayout>
                                         <Label Text="{Binding ProductName}" HeightRequest="40"/>
-                                        <Image Source="{Binding FullPhotoPath}" Aspect="AspectFill"/>
+                                        <Image Source="{Binding FullPhotoPath}" Aspect="AspectFill" HeightRequest="150"/>
                                         <Label Text="{Binding Price}" HorizontalOptions="EndAndExpand"/>
                                     </StackLayout>
                                 </Frame>

@@ -22,7 +22,6 @@ namespace prjCSCApp.ViewModels
         public int TotalPrice = 0;
         int numOfHistory = 10;
         int numOfMain = 5;
-        //int numOfSub = 10;
         bool isCartLoaded = false;
 
         public CItemVM()

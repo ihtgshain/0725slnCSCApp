@@ -1,28 +1,41 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="prjCSCApp.Member">
+             x:Class="prjCSCApp.Member"
+             NavigationPage.HasNavigationBar="false">
+
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="listOrder" ItemTapped="ItemTapped" SeparatorColor="GreenYellow" HasUnevenRows="True">
+            <StackLayout BackgroundColor="Black" >
+                <Label Text="會員訂單查詢" TextColor="#D464F0" FontSize="35" HorizontalOptions="CenterAndExpand"></Label>
+            </StackLayout>
+            <ListView x:Name="listOrder" ItemTapped="ItemTapped" HeightRequest="600" SeparatorColor="#8F00CC" HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Frame BorderColor="GreenYellow" Padding="0">
-                                <Grid Padding="2"  >
-                                    <StackLayout Orientation="Horizontal">
-
-                                        <Image Source="{Binding OrderId}" HeightRequest="100" WidthRequest="120" Aspect="AspectFit"/>
-                                        <StackLayout>
-                                            <StackLayout>
-                                                <StackLayout WidthRequest="380">
-                                                    <StackLayout Orientation="Horizontal">
-                                                        <Label Text="{Binding FullOrderDate}"/>
-                                                        <Label Text="  "/>
-                                                        <Label Text="{Binding OrderState}"/>
-                                                    </StackLayout>
-                                                </StackLayout>
-                                            </StackLayout>
+                            <Grid Padding="2"  >
+                                <StackLayout Orientation="Vertical">
+                                    <Label Text="{Binding FullOrderDate}" FontSize="Large"/>
+                                    <Label Text="{Binding FullOrderState}" FontSize="Large"/>
+                                </StackLayout>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Label x:Name="txtTotal" TextColor="#6F00CC" Text="請點擊訂單查閱詳情。" FontSize="Medium" HorizontalOptions="Center"></Label>
+            <ListView x:Name="listDetail" SeparatorColor="Black" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame BorderColor="Black" Padding="0">
+                                <Grid Padding="2">
+                                    <StackLayout>
+                                        <Label Text="{Binding ProductName}" TextColor="#6F00CC" FontSize="Medium"/>
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                                            <Label Text="{Binding FullQuantity}" TextColor="#6F00CC"/>
+                                            <Label Text="{Binding FullPrice}" TextColor="#6F00CC"/>
+                                            <Label Text="{Binding Sum}" TextColor="#6F00CC"/>
                                         </StackLayout>
                                     </StackLayout>
                                 </Grid>
@@ -31,6 +44,12 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <StackLayout BackgroundColor="#3FA5F5" Orientation="Horizontal" VerticalOptions="EndAndExpand" HeightRequest="38" Padding="5">
+                <ImageButton Source="history" Clicked="btnHistory" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand"/>
+                <ImageButton Source="home" Clicked="btnHome" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand"/>
+                <ImageButton Source="cart" Clicked="btnCart" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand"/>
+                <ImageButton Source="member" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -24,7 +24,13 @@ namespace prjCSCApp.Models
         [JsonProperty("Quantity")]
         public int Quantity { get; set; }
 
+        public string FullQuantity { get { return "數量:" + Quantity; } }
+
         [JsonProperty("Price")]
         public int Price { get; set; }
+
+        public string FullPrice { get { return "單價:" + Price; } }
+
+        public string Sum { get { return "小計:" + (Quantity * Price); } }
     }
 }
