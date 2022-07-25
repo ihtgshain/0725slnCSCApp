@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="prjCSCApp.ShowItem"
+             NavigationPage.HasNavigationBar="false">
+    <ContentPage.Content>
+        <StackLayout>
+        <ListView x:Name="listItem" HasUnevenRows="True"
+                         BackgroundColor="Transparent">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="2"  >
+                            <StackLayout>
+                                <Image Source="{Binding FullPhotoPath}"  HeightRequest="370" Aspect="AspectFit"/>
+                                    <StackLayout>
+                                        <Label Text="{Binding ProductName}" FontSize="Large" TextColor="Black"/>
+                                        <Label Text="{Binding Description}" FontSize="18" VerticalOptions="Center" TextColor="#2770F5"/>
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                                            <Label Text="單價:" FontSize="Medium"/>
+                                            <Label Text="{Binding Price}" FontSize="Medium"/>
+                                        </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+            
+            <StackLayout Orientation="Horizontal" HeightRequest="40">
+                <ImageButton Clicked="btnMinus" HeightRequest="25" Source="Minus.png" BackgroundColor="Transparent"></ImageButton>
+                <Button x:Name="txtQuantity" Clicked="btnQuantity" Text="1" FontSize="Medium" HorizontalOptions="Center" VerticalOptions="Center"></Button>
+                <ImageButton Clicked="btnPlus" HeightRequest="28" Source="plus.png" BackgroundColor="Transparent"></ImageButton>
+                <ImageButton Clicked="btnAddToCart" Source="AddToCart.png" BackgroundColor="Transparent" HorizontalOptions="Center" Margin="2"></ImageButton>
+            </StackLayout>
+
+            <StackLayout BackgroundColor="#3FA5F5" Orientation="Horizontal" VerticalOptions="EndAndExpand" HeightRequest="38" Padding="5">
+            <ImageButton Source="history" Clicked="btnHistory" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand"/>
+            <ImageButton Source="home" Clicked="btnHome" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand"/>
+            <ImageButton Source="cart" Clicked="btnCart" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand"/>
+            <ImageButton Source="member" Clicked="btnMember" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand"/>
+        </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

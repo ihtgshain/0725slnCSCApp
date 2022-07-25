@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="prjCSCApp.MainPage"
+             NavigationPage.HasNavigationBar="false">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <ImageButton Clicked="btnGoodLuck" BackgroundColor="Transparent" Source="goodluck.png" WidthRequest="25" Aspect="AspectFit"></ImageButton>
+                <Entry x:Name="txtSearch" FontSize="Medium" Placeholder="請輸入搜尋關鍵字" WidthRequest="280"/>
+                <ImageButton x:Name="btnKWSearch" Source="search.png" Clicked="btnSearch_Clicked" BackgroundColor="#fff" HeightRequest="20" WidthRequest="20" Margin="1" Aspect="AspectFit" ></ImageButton>
+                <ImageButton x:Name="btnStop" Source="stop.png" Clicked="btnStop_Clicked" BackgroundColor="#fff" HeightRequest="20" WidthRequest="20" Margin="1" Aspect="AspectFit" HorizontalOptions="EndAndExpand"></ImageButton>
+                </StackLayout>
+
+            <!--主廣告(1排橫向)-->
+            <AbsoluteLayout>
+            <StackLayout Margin="4">
+                    <CarouselView x:Name="HotItemView" HeightRequest="200">
+                    <CarouselView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal" ItemSpacing="3"/>
+                    </CarouselView.ItemsLayout>
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame BackgroundColor="#21F03F" Padding="5" CornerRadius="20" WidthRequest="390">
+                                <StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding ProductName}"/>
+                                        <Label Text="{Binding Price}" HorizontalOptions="EndAndExpand"/>
+                                    </StackLayout>
+                                        <ImageButton Clicked="HotItemView_Clicked" Source="{Binding FullPhotoPath}" WidthRequest="390" Aspect="Fill" />
+                                </StackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+            </StackLayout>
+
+                <!--副廣告(2排縱向)-->
+                <StackLayout Margin="4" HeightRequest="230" AbsoluteLayout.LayoutBounds="0,315">
+                    <CollectionView x:Name="SubItemView" HeightRequest="250" SelectionMode="Single" SelectionChanged="SubItemView_SelectionChanged">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical" Span="2" HorizontalItemSpacing="3" VerticalItemSpacing="3"/>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame BackgroundColor="#DFFADC" Padding="5" CornerRadius="20" WidthRequest="390">
+                                    <StackLayout>
+                                        <Label Text="{Binding ProductName}" HeightRequest="40"/>
+                                        <Image Source="{Binding FullPhotoPath}" Aspect="AspectFill"/>
+                                        <Label Text="{Binding Price}" HorizontalOptions="EndAndExpand"/>
+                                    </StackLayout>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+
+                <!--篩選(實際位置在副廣告之上)-->
+                <Frame x:Name="mainSel" BorderColor="Black" Padding="3" CornerRadius="10" WidthRequest="410" AbsoluteLayout.LayoutBounds="0,200">
+                    <StackLayout>
+                        <!--主條件-->
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                            <Button x:Name="btnCo" Clicked="btnSel" FontSize="Large" Text="生產洲別" WidthRequest="180" BackgroundColor="#FFE000"></Button>
+                            <Button x:Name="btnCy" Clicked="btnSel" FontSize="Large" Text="生產國別" WidthRequest="180" BackgroundColor="#E0B118"></Button>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                            <Button x:Name="btnRo" Clicked="btnSel" FontSize="Large" Text="烘培度" WidthRequest="120" BackgroundColor="#DD0DF5"></Button>
+                            <Button x:Name="btnPr" Clicked="btnSel" FontSize="Large" Text="處理法" WidthRequest="120" BackgroundColor="#0452DE"></Button>
+                            <Button x:Name="btnPa" Clicked="btnSel" FontSize="Large" Text="包裝法" WidthRequest="120" BackgroundColor="#21B4F5"></Button>
+                        </StackLayout>
+                        <!--副條件-->
+                        <StackLayout x:Name="subSel" BackgroundColor="#FFF" IsVisible="false">
+                            <CollectionView x:Name="selector">
+                                <CollectionView.ItemsLayout>
+                                    <GridItemsLayout Orientation="Vertical" HorizontalItemSpacing="2" VerticalItemSpacing="2" Span="4"/>
+                                </CollectionView.ItemsLayout>
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Frame BackgroundColor="#FFF" Padding="0" HeightRequest="60">
+                                            <Button Clicked="btnSearch" FontSize="Medium" Padding="0" Text="{Binding}"/>
+                                        </Frame>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+            </AbsoluteLayout>
+            
+            <!--導航鈕-->
+            <StackLayout BackgroundColor="#3FA5F5" Orientation="Horizontal" VerticalOptions="EndAndExpand" HeightRequest="38" Padding="5">
+                <ImageButton Source="history" Clicked="btnHistory" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand"/>
+                <ImageButton Source="home" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand"/>
+                <ImageButton Source="cart" Clicked="btnCart" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand"/>
+                <ImageButton Source="member" Clicked="btnMember" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+            
+            </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

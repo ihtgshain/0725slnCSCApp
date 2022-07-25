@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="prjCSCApp.Search"
+             NavigationPage.HasNavigationBar="false">
+    <ContentPage.Content>
+        
+        <StackLayout Margin="4">
+            <CollectionView x:Name="SubItemView" SelectionMode="Single" SelectionChanged="SubItemView_SelectionChanged">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="2" HorizontalItemSpacing="3" VerticalItemSpacing="3"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BackgroundColor="#DFFADC" Padding="5" CornerRadius="20" WidthRequest="390">
+                            <StackLayout>
+                                <Label Text="{Binding ProductName}" HeightRequest="40"/>
+                                <Image Source="{Binding FullPhotoPath}" Aspect="AspectFill"/>
+                                <Label Text="{Binding Price}" HorizontalOptions="EndAndExpand"/>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <StackLayout BackgroundColor="#3FA5F5" Orientation="Horizontal" VerticalOptions="EndAndExpand" HeightRequest="38" Padding="5">
+                <ImageButton Source="history" Clicked="btnHistory" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand"/>
+                <ImageButton Source="home" Clicked="btnHome" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand"/>
+                <ImageButton Source="cart" Clicked="btnCart" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand"/>
+                <ImageButton Source="member" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

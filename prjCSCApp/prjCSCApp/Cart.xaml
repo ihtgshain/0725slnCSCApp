@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="prjCSCApp.Cart">
+    <ContentPage.Content>
+        <StackLayout>
+        <ListView x:Name="listCart" SeparatorColor="GreenYellow" HasUnevenRows="True"
+                         ItemTapped="ItemTapped">
+            <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <SwipeView>
+                                <SwipeView.LeftItems>
+                                    <SwipeItem Text="刪除此項"
+                                               BackgroundColor="#FF8878"
+                                               IconImageSource="delete.png"
+                                               Invoked="btnDelete"
+                                               ></SwipeItem>
+                                    
+                                    
+                                </SwipeView.LeftItems>
+                                <Frame BorderColor="GreenYellow" Padding="0">
+                                <Grid Padding="2"  >
+                                    <StackLayout Orientation="Horizontal">
+                                        
+                                        <Image Source="{Binding FullPhotoPath}" HeightRequest="100" WidthRequest="120" Aspect="AspectFit"/>
+                                            <StackLayout>
+                                            <StackLayout>
+                                                    <StackLayout WidthRequest="380">
+                                                        <Label Text="{Binding ProductName}"/>
+                                                        <StackLayout Orientation="Horizontal">
+                                                            <Label Text="{Binding FullQuantity}"/>
+                                                            <Label Text="  "/>
+                                                            <Label Text="{Binding FullPrice}"/>
+                                                            <Label Text="     "/>
+                                                            <Label Text="{Binding Sum}"/>
+                                                        </StackLayout>
+                                                        <StackLayout Orientation="Horizontal">
+                                                            <StackLayout Orientation="Horizontal" HeightRequest="40" HorizontalOptions="EndAndExpand">
+                                                                <ImageButton Clicked="btnMinus" HeightRequest="25" Source="Minus.png" BackgroundColor="Transparent"></ImageButton>
+                                                                <ImageButton Clicked="btnPlus" HeightRequest="28" Source="plus.png" BackgroundColor="Transparent"></ImageButton>
+                                                            </StackLayout>
+                                                        </StackLayout>
+                                                    </StackLayout>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
+                           </SwipeView>
+                        </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="總計：" FontSize="Large"></Label>
+                <Label x:Name="txtTotal" FontSize="Large"></Label>
+                <ImageButton Clicked="btnPay" Source="card.png" HeightRequest="40" HorizontalOptions="CenterAndExpand" BackgroundColor="Transparent"></ImageButton>
+            </StackLayout>
+
+            <StackLayout BackgroundColor="#3FA5F5" Orientation="Horizontal" VerticalOptions="EndAndExpand" HeightRequest="38" Padding="5">
+                <ImageButton Source="history" Clicked="btnHistory" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand"/>
+                <ImageButton Source="home" Clicked="btnHome" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand"/>
+                <ImageButton Source="cart" Clicked="btnCart" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand"/>
+                <ImageButton Source="member" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
