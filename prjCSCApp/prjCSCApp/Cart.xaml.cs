@@ -30,7 +30,7 @@ namespace prjCSCApp
         private void ShowTotal(List<CCart> list)
         {
             int total = (int)list.Sum(x => x.Price * x.Quantity);
-            txtTotal.Text = $"NTD { total.ToString()} 元";
+            txtTotal.Text = $"NTD { total} 元";
         }
 
         private async void btnPay(object sender, EventArgs e)
@@ -46,25 +46,6 @@ namespace prjCSCApp
 
             if (result)
             {
-
-                //COrder order = new COrder();
-                //order.OrderId = 1;
-                //order.OrderDate = DateTime.Now;
-                //order.MemberId = (int)mp.user.MemberId;
-                //order.OrderState = "NEW";
-
-                //await SaveOrder(order);
-                //await mp.Navigation.PushAsync(new Member());
-
-                //var client = new HttpClient();
-                //client.BaseAddress = new Uri("https://prjcoffee.azurewebsites.net");
-
-                //string json = JsonConvert.SerializeObject(order);
-
-                //var content = new StringContent(json, Encoding.UTF8, "application/json");
-                //HttpResponseMessage response = await client.PostAsync("/api/R_Member", content);
-
-                //var r = await response.Content.ReadAsStringAsync();
                 await SaveOrder();
                 await mp.Navigation.PushAsync(new Member());
             }
@@ -84,7 +65,23 @@ namespace prjCSCApp
                 var json = JsonConvert.SerializeObject(order);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
                 var response = await client.PostAsync(url, content);
+                var strId = await response.Content.ReadAsStringAsync();
+                await SaveOrderDetail(int.Parse(strId));
+            }
+        }
 
+        public async Task SaveOrderDetail(int id)
+        {
+            string url = "https://prjcoffee.azurewebsites.net/api/R_Member/api/PostOrderDetail";
+            using (var client = new HttpClient())
+            {
+                foreach(var i in vm.cartItem)
+                {
+                    i.OrderId = id;
+                    var json = JsonConvert.SerializeObject(i);
+                    var content = new StringContent(json, Encoding.UTF8, "application/json");
+                    var response = await client.PostAsync(url, content);
+                }
             }
         }
 
@@ -147,7 +144,31 @@ namespace prjCSCApp
 
         private async void btnMember(object sender, EventArgs e)
         {
+            if (mp.user == null)
+                await Navigation.PushAsync(new Login(2));
+            else
                 await Navigation.PushAsync(new Member());
         }
+
+
+
+        //COrder order = new COrder();
+        //order.OrderId = 1;
+        //order.OrderDate = DateTime.Now;
+        //order.MemberId = (int)mp.user.MemberId;
+        //order.OrderState = "NEW";
+
+        //await SaveOrder(order);
+        //await mp.Navigation.PushAsync(new Member());
+
+        //var client = new HttpClient();
+        //client.BaseAddress = new Uri("https://prjcoffee.azurewebsites.net");
+
+        //string json = JsonConvert.SerializeObject(order);
+
+        //var content = new StringContent(json, Encoding.UTF8, "application/json");
+        //HttpResponseMessage response = await client.PostAsync("/api/R_Member", content);
+
+        //var r = await response.Content.ReadAsStringAsync();
     }
 }

@@ -12,11 +12,11 @@
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Frame BackgroundColor="#DFFADC" Padding="5" CornerRadius="20" WidthRequest="390">
+                        <Frame BackgroundColor="#9F5000" Padding="5" CornerRadius="15" WidthRequest="390">
                             <StackLayout>
-                                <Label Text="{Binding ProductName}" HeightRequest="40"/>
-                                <Image Source="{Binding FullPhotoPath}" Aspect="AspectFill"/>
-                                <Label Text="{Binding Price}" HorizontalOptions="EndAndExpand"/>
+                                <Label Text="{Binding ProductName}" HeightRequest="40" TextColor="White"/>
+                                <Image Source="{Binding FullPhotoPath}" Aspect="AspectFill" HeightRequest="150"/>
+                                <Label Text="{Binding FullPrice}" HorizontalOptions="EndAndExpand" TextColor="White"/>
                             </StackLayout>
                         </Frame>
                     </DataTemplate>

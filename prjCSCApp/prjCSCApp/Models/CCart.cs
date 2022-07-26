@@ -42,6 +42,9 @@ namespace prjCSCApp.Models
         [JsonProperty("Stock")]
         public int Stock { get; set; }
 
+        [JsonProperty("OrderId")]
+        public int OrderId { get; set; }
+
         public string Sum { get { return "小計:"+(Quantity * Price); } }
     }
 }

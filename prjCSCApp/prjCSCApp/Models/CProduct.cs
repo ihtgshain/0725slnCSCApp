@@ -18,6 +18,8 @@ namespace prjCSCApp
         [JsonProperty("Price")]
         public int Price { get; set; }
 
+        public string FullPrice { get { return "單價:" + Price +"元"; } }
+
         [JsonProperty("Description")]
         public string Description { get; set; }
 

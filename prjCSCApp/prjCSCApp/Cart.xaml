@@ -62,7 +62,7 @@
                 <ImageButton Source="history" Clicked="btnHistory" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand"/>
                 <ImageButton Source="home" Clicked="btnHome" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand"/>
                 <ImageButton Source="cart" Clicked="btnCart" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand"/>
-                <ImageButton Source="member" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand"/>
+                <ImageButton Source="member" Clicked="btnMember" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

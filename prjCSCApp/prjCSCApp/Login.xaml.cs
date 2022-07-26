@@ -62,10 +62,8 @@ namespace prjCSCApp
 
         private void btnDemo(object sender, EventArgs e)
         {
-            txtID.Text = "0933333333";
-            txtPW.Text = "0933333333";
+            txtID.Text = "0966666666";
+            txtPW.Text = "0966666666";
         }
     }
-
-
 }

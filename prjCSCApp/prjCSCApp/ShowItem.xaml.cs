@@ -74,7 +74,7 @@ namespace prjCSCApp
                 vm.cartItem.Add(c);
             }
             await DisplayAlert($"{mp.user.MemberName} 您好", $"\r\n您選的商品已加入購物車","OK");
-            vm.ShowCartPage();
+            await Navigation.PopAsync();
         }
 
         //=============navBtn==================

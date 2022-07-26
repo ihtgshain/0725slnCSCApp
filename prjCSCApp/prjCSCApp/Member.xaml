@@ -9,7 +9,7 @@
             <StackLayout BackgroundColor="Black" >
                 <Label Text="會員訂單查詢" TextColor="#D464F0" FontSize="35" HorizontalOptions="CenterAndExpand"></Label>
             </StackLayout>
-            <ListView x:Name="listOrder" ItemTapped="ItemTapped" HeightRequest="600" SeparatorColor="#8F00CC" HasUnevenRows="True">
+            <ListView x:Name="listOrder" ItemTapped="ItemTapped" HeightRequest="780" SeparatorColor="#8F00CC" HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -23,7 +23,9 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Label x:Name="txtTotal" TextColor="#6F00CC" Text="請點擊訂單查閱詳情。" FontSize="Medium" HorizontalOptions="Center"></Label>
+            <StackLayout  BackgroundColor="#AAA">
+                <Label x:Name="txtTotal" Padding="0" TextColor="#6F00CC" Text="請點擊訂單查閱詳情。" FontSize="Medium" HorizontalOptions="Center"></Label>
+            </StackLayout>
             <ListView x:Name="listDetail" SeparatorColor="Black" HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>

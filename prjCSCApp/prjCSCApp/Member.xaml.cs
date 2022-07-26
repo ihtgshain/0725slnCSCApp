@@ -30,7 +30,7 @@ namespace prjCSCApp
         {
             HttpClient client = new HttpClient();
             var result = await client.GetStringAsync("https://prjcoffee.azurewebsites.net/api/R_Member/o_" + mp.user.MemberId);
-            var items = JsonConvert.DeserializeObject<List<COrder>>(result).OrderByDescending(x=>x.OrderId).ToList();
+            var items = JsonConvert.DeserializeObject<List<COrder>>(result).OrderByDescending(x=>x.OrderDate).ToList();
             vm.orderItem = items;
             listOrder.ItemsSource = vm.orderItem;
 

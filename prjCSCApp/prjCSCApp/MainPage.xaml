@@ -21,11 +21,11 @@
                     </CarouselView.ItemsLayout>
                     <CarouselView.ItemTemplate>
                         <DataTemplate>
-                            <Frame BackgroundColor="#21F03F" Padding="5" CornerRadius="20" WidthRequest="390">
+                            <Frame BackgroundColor="#9F5000" Padding="0" Margin="5" CornerRadius="5" WidthRequest="390">
                                 <StackLayout>
                                     <StackLayout Orientation="Horizontal">
-                                        <Label Text="{Binding ProductName}"/>
-                                        <Label Text="{Binding Price}" HorizontalOptions="EndAndExpand"/>
+                                        <Label Text="{Binding ProductName}" TextColor="White"/>
+                                            <Label Text="{Binding FullPrice}" HorizontalOptions="EndAndExpand" TextColor="White"/>
                                     </StackLayout>
                                         <ImageButton Clicked="HotItemView_Clicked" Source="{Binding FullPhotoPath}" WidthRequest="390" HeightRequest="180" Aspect="Fill" />
                                 </StackLayout>
@@ -43,11 +43,11 @@
                         </CollectionView.ItemsLayout>
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
-                                <Frame BackgroundColor="#DFFADC" Padding="5" CornerRadius="20" WidthRequest="390">
+                                <Frame BackgroundColor="#D26900" Padding="5" CornerRadius="15" WidthRequest="390">
                                     <StackLayout>
-                                        <Label Text="{Binding ProductName}" HeightRequest="40"/>
+                                        <Label Text="{Binding ProductName}" HeightRequest="40" TextColor="White"/>
                                         <Image Source="{Binding FullPhotoPath}" Aspect="AspectFill" HeightRequest="150"/>
-                                        <Label Text="{Binding Price}" HorizontalOptions="EndAndExpand"/>
+                                        <Label Text="{Binding FullPrice}" HorizontalOptions="EndAndExpand" TextColor="White"/>
                                     </StackLayout>
                                 </Frame>
                             </DataTemplate>
