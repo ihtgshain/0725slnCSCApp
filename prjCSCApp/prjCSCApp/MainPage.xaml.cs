@@ -44,11 +44,12 @@ namespace prjCSCApp
             SubItemView.ItemsSource = vm.subItem;
         }
 
-        bool timerFlag = false;
+        bool timerFlag = true;
         private void btnStop_Clicked(object sender, EventArgs e)
         {
             timerFlag = !timerFlag;
-            btnStop.Source = timerFlag ? "play.png" : "stop.png";
+            //btnStop.Source = timerFlag ? "play.png" : "stop.png";
+            btnStop.Source = timerFlag ? "stop.png" : "play.png";
         }
 
         public void RunBanner(int count)

@@ -39,7 +39,7 @@ namespace prjCSCApp.ViewModels
             
 
             mainItem = items.Take(numOfMain).ToList();
-            subItem = items.Skip(numOfMain-1).ToList();
+            subItem = items.Skip(numOfMain).ToList();
             //for (int i = 0; i < numOfMain; i++)
             //{
             //    //if (mainItem[i].MainPhotoPath == null)
