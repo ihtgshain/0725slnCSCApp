@@ -115,7 +115,7 @@ namespace prjCSCApp
         {
             var item = vm.cartItem[i];
             bool result = await DisplayAlert($"{mp.user.MemberName} 您好，請確認："
-                , $"\r\n是否要從購物車中將商品 {item.ProductsId}：{item.Quantity} 件刪除？"
+                , $"\r\n是否要從購物車中將商品「{item.ProductName}」={item.Quantity}件刪除？"
                 , "確認刪除", "返回購物車");
 
             if (result)
