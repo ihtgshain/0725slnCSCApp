@@ -48,6 +48,7 @@ namespace prjCSCApp
             {
                 await SaveOrder();
                 await mp.Navigation.PushAsync(new Member());
+                vm.cartItem.Clear();
             }
         }
 
