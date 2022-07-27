@@ -98,7 +98,7 @@ namespace prjCSCApp.ViewModels
         private void AddToHistory(CProduct p)   //private
         {
             if (!histItem.Contains(p))  histItem.Insert(0, p);
-            if (histItem.Count > numOfHistory)    histItem.RemoveAt(numOfHistory+1);
+            if (histItem.Count > numOfHistory)    histItem.RemoveAt(numOfHistory);
         }
 
         public async void ShowHistoryPage() =>     //use the same with search(page)

@@ -14,7 +14,7 @@ namespace prjCSCApp.Droid
 {
 	
 	
-	[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Android.Build.Tasks", "12.3.3.31")]
+	[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Android.Build.Tasks", "1.0.0.0")]
 	public partial class Resource
 	{
 		
@@ -11830,19 +11830,22 @@ namespace prjCSCApp.Droid
 			public const int query = 2131165341;
 			
 			// aapt resource value: 0x7F07009E
-			public const int search = 2131165342;
+			public const int reading = 2131165342;
 			
 			// aapt resource value: 0x7F07009F
-			public const int stop = 2131165343;
+			public const int search = 2131165343;
 			
 			// aapt resource value: 0x7F0700A0
-			public const int test_custom_background = 2131165344;
+			public const int stop = 2131165344;
 			
 			// aapt resource value: 0x7F0700A1
-			public const int tooltip_frame_dark = 2131165345;
+			public const int test_custom_background = 2131165345;
 			
 			// aapt resource value: 0x7F0700A2
-			public const int tooltip_frame_light = 2131165346;
+			public const int tooltip_frame_dark = 2131165346;
+			
+			// aapt resource value: 0x7F0700A3
+			public const int tooltip_frame_light = 2131165347;
 			
 			static Drawable()
 			{

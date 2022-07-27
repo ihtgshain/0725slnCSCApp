@@ -5,7 +5,7 @@
     <ContentPage.Content>
         <StackLayout>
         <ListView x:Name="listCart" SeparatorColor="GreenYellow" HasUnevenRows="True"
-                         ItemTapped="ItemTapped">
+                         ItemTapped="ItemTapped" SelectedItem="ItemTapped">
             <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

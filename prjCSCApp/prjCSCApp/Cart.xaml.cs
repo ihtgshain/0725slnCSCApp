@@ -40,7 +40,7 @@ namespace prjCSCApp
             int TotalQuantity = vm.cartItem.Sum(x => x.Quantity);
             string TotalPrice = txtTotal.Text;
 
-            bool result = await DisplayAlert($"{userName} 您好，請確認以下的購買資訊："
+            bool result = await DisplayAlert($"{userName} 您好，請確認購買資訊："
                 , $"\r\n本次購買 {TotalItems} 款商品，共計 {TotalQuantity} 件\r\n總金額 {TotalPrice} 。"
                 , "確認購買", "返回購物車");
 
@@ -72,7 +72,7 @@ namespace prjCSCApp
 
         public async Task SaveOrderDetail(int id)
         {
-            string url = "https://prjcoffee.azurewebsites.net/api/R_Member/api/PostOrderDetail";
+            string url = "https://prjcoffee.azurewebsites.net/api/R_Member/ODetail";
             using (var client = new HttpClient())
             {
                 foreach(var i in vm.cartItem)
@@ -97,8 +97,10 @@ namespace prjCSCApp
             if (vm.cartItem[i].Quantity > 1)
             {
                 vm.cartItem[i].Quantity -= 1;
-                listCart.ItemsSource=null;
+                //listCart.RemoveBinding();
+                listCart.ItemsSource = null;
                 listCart.ItemsSource = vm.cartItem;
+                
                 ShowTotal(vm.cartItem);
             }
         }
@@ -113,6 +115,7 @@ namespace prjCSCApp
 
         private async void btnDelete(object sender, EventArgs e)
         {
+
             var item = vm.cartItem[i];
             bool result = await DisplayAlert($"{mp.user.MemberName} 您好，請確認："
                 , $"\r\n是否要從購物車中將商品「{item.ProductName}」={item.Quantity}件刪除？"

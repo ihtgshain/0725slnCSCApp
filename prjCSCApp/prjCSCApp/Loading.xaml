@@ -4,8 +4,9 @@
              x:Class="prjCSCApp.Loading"
              NavigationPage.HasNavigationBar="false">
     <ContentPage.Content>
-        <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Padding="10">
-            <Image Source="loading.gif" x:Name="imgLoading" IsAnimationPlaying="True"/>
+        <StackLayout BackgroundColor="black" HeightRequest="200" WidthRequest="480" HorizontalOptions="Center" VerticalOptions="Center" Padding="10">
+            <Image  HeightRequest="120" WidthRequest="120" Source="reading.gif" x:Name="imgLoading" IsAnimationPlaying="True"/>
+            <Label Text="讀取中…" TextColor="AliceBlue" FontSize="28" HorizontalOptions="Center" ></Label>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
